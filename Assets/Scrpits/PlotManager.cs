@@ -11,9 +11,14 @@ public class PlotManager : MonoBehaviour
     int plantStage = 0;
     float timer;
 
-    public PlantObject selectedPlant;   
+    public Color avaiableColor = Color.green;
+    public Color unavaiableColor = Color.red;
 
-    SpriteRenderer plot;
+    private SpriteRenderer plot;
+
+    private PlantObject selectedPlant;
+
+    private FarmManager fm;   
     public Sprite[] plotStages;
     int plotStage;
     float plotTimer;
@@ -25,8 +30,9 @@ public class PlotManager : MonoBehaviour
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         plantColider = transform.GetChild(0).GetComponent<BoxCollider2D>();
         plotStage = plotStages.Length -1;
-        Debug.Log(plotStage);
+        fm = transform.parent.GetComponent<FarmManager>();
     }
+
     void Update()
     {
 
@@ -52,27 +58,50 @@ public class PlotManager : MonoBehaviour
     {
         if(isPlanted)
         {
-            if(plantStage == selectedPlant.plantStages.Length-1)
+            if(plantStage == selectedPlant.plantStages.Length-1 && !fm.isPlanting)
             {
                 Harvest();
             }
         }
-        else
+        else if(fm.isPlanting && fm.selectedPlant.plant.buyPrice <= fm.money)
         {
-            Plant();
+            Plant(fm.selectedPlant.plant);
         }
+    }
+
+    private void OnMouseOver()
+    {
+        if(fm.isPlanting)
+        {
+            if(isPlanted || fm.selectedPlant.plant.buyPrice > fm.money)
+            {
+                plot.color = unavaiableColor;
+            }
+            else
+            {
+                plot.color = avaiableColor;
+            }
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        plot.color = Color.white;
     }
 
     void Harvest()
     {
-        Debug.Log("Harvested");
         isPlanted = false;
         plant.gameObject.SetActive(false);
+        fm.Transaction(selectedPlant.sellPrice);
     }
-    void Plant()
+    void Plant(PlantObject newPlant)
     {
-        Debug.Log("Planted");
+        selectedPlant = newPlant;
         isPlanted = true;
+
+        fm.Transaction(-selectedPlant.buyPrice);
+
         plantStage = 0;
         UpdatePlant();
         timer = selectedPlant.timeBtwStages;
