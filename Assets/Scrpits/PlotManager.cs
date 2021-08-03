@@ -28,14 +28,19 @@ public class PlotManager : MonoBehaviour
     public Sprite normalSprite;
     public Sprite unavaiableSprite;
 
+    private Collider2D col;
+    OnOff onoff;
+
     float speed = 1f;
     public bool isBought = true;
 
     void Start()
     {
+        onoff = FindObjectOfType<OnOff>();
         plotTimer = Random.Range(660f, 7200f);
         plot = GetComponent<SpriteRenderer>();
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        col = GetComponent<Collider2D>();
         plantColider = transform.GetChild(0).GetComponent<BoxCollider2D>();
         plotStage = plotStages.Length -1;
         fm = transform.parent.GetComponent<FarmManager>();
@@ -51,6 +56,15 @@ public class PlotManager : MonoBehaviour
 
     void Update()
     {
+
+        if(onoff.On)
+        {
+            col.enabled = true;
+        }
+        else
+        {
+            col.enabled = false;
+        }
 
         plotTimer -= Time.deltaTime;
         if(plotTimer < 0 && plotStage > 0)

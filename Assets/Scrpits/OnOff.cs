@@ -5,9 +5,9 @@ using UnityEngine;
 public class OnOff : MonoBehaviour
 {
     [SerializeField] private GameObject Game;
-    private bool On = true;
+    public bool On = true;
     public GameObject canvas;
-    
+
     public void turnOn()
     {
         if(On)
