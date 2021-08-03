@@ -187,7 +187,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1271041603058195935, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  m_Sprite: {fileID: 7629125325976426898, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -210,7 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa596702ac093b44db1d758a8b8199bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPlant: {fileID: 11400000, guid: 9d4b7d4e57313e544a2b2e6cd3262b76, type: 2}
+  avaiableColor: {r: 0, g: 1, b: 0, a: 1}
+  unavaiableColor: {r: 1, g: 0, b: 0, a: 1}
   plotStages:
   - {fileID: 7629125325976426898, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
   - {fileID: 8353276796787040508, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
@@ -222,6 +223,10 @@ MonoBehaviour:
   - {fileID: -4348397574329486151, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
   - {fileID: -2012946019287992556, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
   - {fileID: -2012946019287992556, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  drySprite: {fileID: 6585399686029332789, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  normalSprite: {fileID: -2012946019287992556, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  unavaiableSprite: {fileID: 7629125325976426898, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  isBought: 0
 --- !u!60 &6100868403399434224
 PolygonCollider2D:
   m_ObjectHideFlags: 0

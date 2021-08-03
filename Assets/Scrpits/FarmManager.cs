@@ -13,6 +13,13 @@ public class FarmManager : MonoBehaviour
     public Color buyColor = Color.green;
     public Color cancleColor = Color.red;   
 
+    public bool isSelecting = false;
+    public int selectedTool = 0;
+
+    public Image[] butttonsImg;
+    public Sprite normalButton;
+    public Sprite selectedButton;
+
     void Start()
     {
         moneyTxt.text = "$" + money;
@@ -22,24 +29,53 @@ public class FarmManager : MonoBehaviour
     {
         if(selectedPlant == newPlant)
         {
-            Debug.Log("Deselected" + selectedPlant.plant.plantName);
-            selectedPlant.btnImage.color = buyColor;
-            selectedPlant.btnTxt.text = "Buy";
-            selectedPlant = null;
-            isPlanting = false;
+            CheckSelection();
         }
         else
         {
-            if(selectedPlant != null)
+            CheckSelection();
+            selectedPlant = newPlant;
+            selectedPlant.btnImage.color = cancleColor;
+            selectedPlant.btnTxt.text = "Cancle";
+            isPlanting = true;
+        }
+    }
+
+    public void SelectTool(int toolNumber)
+    {
+        if(toolNumber == selectedTool)
+        {
+            CheckSelection();
+        }
+        else
+        {
+            CheckSelection();
+            isSelecting = true;
+            selectedTool = toolNumber;
+            butttonsImg[toolNumber - 1].sprite = selectedButton;
+        }
+    }
+
+    private void CheckSelection()
+    {
+        if(isPlanting)
+        {
+            isPlanting = false;
+             if(selectedPlant != null)
             {
                 selectedPlant.btnImage.color = buyColor;
                 selectedPlant.btnTxt.text = "Buy";
             }
-            selectedPlant = newPlant;
-            selectedPlant.btnImage.color = cancleColor;
-            selectedPlant.btnTxt.text = "Cancle";
-            Debug.Log("selected" + selectedPlant.plant.plantName);
-            isPlanting = true;
+            selectedPlant = null;
+        }
+        if(isSelecting)
+        {
+            if(selectedTool > 0)
+            {
+                butttonsImg[selectedTool - 1].sprite = normalButton;
+            }
+            isSelecting = false;
+            selectedTool = 0;
         }
     }
 
