@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlotManager : MonoBehaviour
 {
@@ -86,6 +88,10 @@ public class PlotManager : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if(isPlanted && fm.isSelecting && plantStage == selectedPlant.plantStages.Length-1)
+        {
+            ErrorItemandHarvest();
+        }
         if(isPlanted)
         {
             if(plantStage == selectedPlant.plantStages.Length-1 && !fm.isPlanting && !fm.isSelecting)
@@ -103,9 +109,7 @@ public class PlotManager : MonoBehaviour
             {   
                 case 1:
                 if(isBought){
-                    isDry = false;
-                    plot.sprite = normalSprite;
-                    if(isPlanted) UpdatePlant();
+                    StartCoroutine(Watering());
                 }
                     break;
                 case 2:
@@ -131,6 +135,7 @@ public class PlotManager : MonoBehaviour
 
     private void OnMouseOver()
     {
+
         if(fm.isPlanting)
         {
             if(isPlanted || fm.selectedPlant.plant.buyPrice > fm.money || !isBought)
@@ -191,12 +196,19 @@ public class PlotManager : MonoBehaviour
 
     void Harvest()
     {
-        isPlanted = false;
-        plant.gameObject.SetActive(false);
-        fm.Transaction(selectedPlant.sellPrice);
-        isDry = true;
-        plot.sprite = drySprite;
-        speed = 1f;
+        if(fm.isSelecting)
+        {
+            ErrorItemandHarvest();
+        }
+        else
+        {
+            isPlanted = false;
+            plant.gameObject.SetActive(false);
+            fm.Transaction(selectedPlant.sellPrice);
+            isDry = true;
+            plot.sprite = drySprite;
+            speed = 1f;
+        }
     }
     void Plant(PlantObject newPlant)
     {
@@ -227,5 +239,21 @@ public class PlotManager : MonoBehaviour
     {
         plot.sprite = plotStages[plotStage];
         plotTimer = Random.Range(660f, 7200f);
+    }
+    private void ErrorItemandHarvest()
+    {
+            Debug.Log("ItSel");
+            fm.warningTXT.text = "You must deselect the tool to harvest your crops";
+            fm.warningText.GetComponent<Animator>().Play("Fade");
+            fm.buttons[fm.selectedTool - 1].GetComponent<Animator>().Play("ItemIsUsing");
+    }
+    private IEnumerator Watering()
+    {
+        plot.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        yield return new WaitForSeconds (1.3f);
+        plot.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        isDry = false;
+        plot.sprite = normalSprite;
+        if(isPlanted) UpdatePlant();
     }
 }

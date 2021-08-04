@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FarmManager : MonoBehaviour
 {
@@ -16,9 +17,13 @@ public class FarmManager : MonoBehaviour
     public bool isSelecting = false;
     public int selectedTool = 0;
 
-    public Image[] butttonsImg;
+    public Image[] buttonsImg;
     public Sprite normalButton;
     public Sprite selectedButton;
+    public GameObject[] buttons;
+    public GameObject warningText;
+    public TextMeshProUGUI warningTXT;
+
 
     void Start()
     {
@@ -52,7 +57,7 @@ public class FarmManager : MonoBehaviour
             CheckSelection();
             isSelecting = true;
             selectedTool = toolNumber;
-            butttonsImg[toolNumber - 1].sprite = selectedButton;
+            buttonsImg[toolNumber - 1].sprite = selectedButton;
         }
     }
 
@@ -72,7 +77,7 @@ public class FarmManager : MonoBehaviour
         {
             if(selectedTool > 0)
             {
-                butttonsImg[selectedTool - 1].sprite = normalButton;
+                buttonsImg[selectedTool - 1].sprite = normalButton;
             }
             isSelecting = false;
             selectedTool = 0;
