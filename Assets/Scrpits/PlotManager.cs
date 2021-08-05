@@ -26,9 +26,6 @@ public class PlotManager : MonoBehaviour
     float plotTimer;
 
     bool isDry = true;
-    public Sprite drySprite;
-    public Sprite normalSprite;
-    public Sprite unavaiableSprite;
 
     private Collider2D col;
     OnOff onoff;
@@ -39,20 +36,25 @@ public class PlotManager : MonoBehaviour
     void Start()
     {
         onoff = FindObjectOfType<OnOff>();
-        plotTimer = Random.Range(660f, 7200f);
+        plotTimer = Random.Range(0f, 3f);
         plot = GetComponent<SpriteRenderer>();
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
         plantColider = transform.GetChild(0).GetComponent<BoxCollider2D>();
-        plotStage = plotStages.Length -1;
         fm = transform.parent.GetComponent<FarmManager>();
         if(isBought)
         {
-            plot.sprite = drySprite;
+            plotStage = 3;
+            
+        plot.sprite = plotStages[plotStage];
+        plotTimer = Random.Range(0f, 5f);
         }
         else
         {
-            plot.sprite = unavaiableSprite;
+            plotStage = 0;
+
+        plot.sprite = plotStages[plotStage];
+        plotTimer = Random.Range(0f, 5f);
         }
     }
 
@@ -69,10 +71,23 @@ public class PlotManager : MonoBehaviour
         }
 
         plotTimer -= Time.deltaTime;
-        if(plotTimer < 0 && plotStage > 0)
+        if(plotTimer < 0 && isBought)
         {
-            plotStage--;
-            UpdatePlot();
+            if(isDry)
+            {
+                if(plotStage < 5 && plotStage > 2)
+                plotStage++;
+                UpdatePlot();
+
+            }
+            else
+            {
+                if(plotStage > 5 && plotStage < 8)
+                {
+                    plotStage++;
+                UpdatePlot();
+                }
+            }
         }
 
         if(isPlanted && !isDry){
@@ -113,20 +128,45 @@ public class PlotManager : MonoBehaviour
                 }
                     break;
                 case 2:
-                    if(fm.money >= 20 && !isBought && !((fm.money - 20) <= 10))
+                    if(fm.money >= 20 && !isBought && !((fm.money - 20) < 10))
                     {
                         fm.Transaction(-20);
                         isBought = true;
-                        plot.sprite = drySprite;
+                        if(0 < (plotStage + 1) && plotStage < 3)
+                        {
+                            plotStage += 3;
+                        }
+        plot.sprite = plotStages[plotStage];
+        plotTimer = Random.Range(0f, 5f);
                     }
                     break;
                 case 3:
-                    if(fm.money >= 30 && isBought && !((fm.money - 30) <= 10))
+                    if(fm.money >= 30 && isBought && !((fm.money - 30) < 10))
                     {
                         fm.Transaction(-30);
                         if(speed < 2) speed += .2f;
                     }
                     break;
+                case 4:
+                    if( isBought && ((plotStage + 1) % 3 != 1))
+                    {
+                        fm.Transaction(-5);
+                        plotStage--;
+                          switch ((plotStage+1) % 3)
+        {
+            case 1:
+                speed += 0.1f;
+            break;
+            case 2:
+                speed += 0.2f;
+            break;
+            default:
+            break;
+        }
+                        UpdatePlot();
+                    }
+                    break;
+
                 default:
                     break;
             }
@@ -163,7 +203,7 @@ public class PlotManager : MonoBehaviour
                         }
                     break;
                 case 3:
-                        if(isBought && fm.money > 30)
+                        if(isBought && (fm.money - 30) > 10)
                         {
                             plot.color = avaiableColor;
                         }
@@ -173,7 +213,7 @@ public class PlotManager : MonoBehaviour
                         }
                     break;
                 case 2:
-                        if(!isBought && fm.money > 20)
+                        if(!isBought && (fm.money - 20) > 10)
                         {
                             plot.color = avaiableColor;
                         }
@@ -182,6 +222,16 @@ public class PlotManager : MonoBehaviour
                             plot.color = unavaiableColor;
                         }
                     break;
+                case 4:
+                        if(isBought && (fm.money - 5) > 10 && ((plotStage + 1) % 3 != 0))
+                        {
+                            plot.color = avaiableColor;
+                        }
+                        else
+                        {
+                            plot.color = unavaiableColor;
+                        }
+                break;
                 default:
                             plot.color = unavaiableColor;
                         break;
@@ -206,7 +256,10 @@ public class PlotManager : MonoBehaviour
             plant.gameObject.SetActive(false);
             fm.Transaction(selectedPlant.sellPrice);
             isDry = true;
-            plot.sprite = drySprite;
+            if(plotStage < 9 && plotStage > 5)
+            plotStage -= 3;
+        plot.sprite = plotStages[plotStage];
+        plotTimer = Random.Range(0f, 5f);
             speed = 1f;
         }
     }
@@ -237,8 +290,37 @@ public class PlotManager : MonoBehaviour
     }
     void UpdatePlot()
     {
+        if((plotStage+1) % 3 == 1)
+        {
+            switch ((plotStage+1) % 3)
+        {
+            case 1:
+                speed += 0.1f;
+            break;
+            case 2:
+                speed += 0.2f;
+            break;
+            default:
+            break;
+        }
+        }
+        else
+        {
+            switch ((plotStage+1) % 3)
+        {   
+            case 1:
+                speed -= 0.1f;
+            break;
+            case 2:
+                speed -= 0.2f;
+            break;
+            default:
+            break;
+        }
+        }
+       
         plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(660f, 7200f);
+        plotTimer = Random.Range(0f, 5f);
     }
     private void ErrorItemandHarvest()
     {
@@ -253,7 +335,13 @@ public class PlotManager : MonoBehaviour
         yield return new WaitForSeconds (1.3f);
         plot.gameObject.transform.GetChild(1).gameObject.SetActive(false);
         isDry = false;
-        plot.sprite = normalSprite;
+        if(2 < plotStage && plotStage < 6)
+        {
+            plotStage += 3;
+        }
+        
+        plot.sprite = plotStages[plotStage];
+        plotTimer = Random.Range(0f, 5f);
         if(isPlanted) UpdatePlant();
     }
 }
