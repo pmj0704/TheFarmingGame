@@ -9,10 +9,12 @@ public class StoreManager : MonoBehaviour
 
     private void Awake()
     {
-        var loadPlants = Resources.LoadAll("Assets/PlantFile", typeof(PlantObject));
+        Debug.Log("1");
+        var loadPlants = Resources.LoadAll("Plants", typeof(PlantObject));
         foreach (var plant in loadPlants)
         {
             plantObjects.Add((PlantObject)plant);
+            Debug.Log("2");
         }
         plantObjects.Sort(SortByPrice);
 
@@ -20,6 +22,7 @@ public class StoreManager : MonoBehaviour
         {
             PlantItem newPlant = Instantiate(plantItem, transform).GetComponent<PlantItem>();
             newPlant.plant = plant;
+            Debug.Log("3");
         }
     }
 

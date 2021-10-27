@@ -32,7 +32,8 @@ public class PlotManager : MonoBehaviour
 
     float speed = 1f;
     public bool isBought = true;
-
+    private bool isDark = true;
+    private bool lightBought = false;
     void Start()
     {
         onoff = FindObjectOfType<OnOff>();
@@ -128,7 +129,7 @@ public class PlotManager : MonoBehaviour
                 }
                     break;
                 case 2:
-                    if(fm.money >= 20 && !isBought && !((fm.money - 20) < 10))
+                    if(fm.money >= 20 && !isBought && ((fm.money - 20) > 10))
                     {
                         fm.Transaction(-20);
                         isBought = true;
@@ -136,14 +137,14 @@ public class PlotManager : MonoBehaviour
                         {
                             plotStage += 3;
                         }
-        plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(0f, 1800f);
+                    plot.sprite = plotStages[plotStage];
+                    plotTimer = Random.Range(0f, 1800f);
                     }
                     break;
                 case 3:
-                    if(fm.money >= 30 && isBought && !((fm.money - 30) < 10))
+                    if(fm.money >= 5 && isBought && ((fm.money - 5) > 10))
                     {
-                        fm.Transaction(-30);
+                        fm.Transaction(-5);
                         if(speed < 2) speed += .2f;
                     }
                     break;
@@ -152,20 +153,45 @@ public class PlotManager : MonoBehaviour
                     {
                         plotStage--;
                           switch ((plotStage+1) % 3)
-        {
-            case 1:
-                speed += 0.1f;
-            break;
-            case 2:
-                speed += 0.2f;
-            break;
-            default:
-            break;
-        }
+                                {
+                                    case 1:
+                                        speed += 0.1f;
+                                        break;
+                                    case 2:
+                                        speed += 0.2f;
+                                        break;
+                                    default: break;
+                                 }
                         UpdatePlot();
                     }
                     break;
-
+                case 5:
+                    if (!lightBought)
+                    {
+                        if (fm.money >= 20 && isBought && ((fm.money - 20) > 10))
+                        {
+                            fm.Transaction(-20);
+                            lightBought = true;
+                            isDark = false;
+                            plot.gameObject.transform.GetChild(3).gameObject.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        if (isDark)
+                        {
+                            plot.gameObject.transform.GetChild(3).gameObject.SetActive(true);
+                            isDark = false;
+                        }
+                        else
+                        {
+                            plot.gameObject.transform.GetChild(3).gameObject.SetActive(false);
+                            isDark = true;
+                        }
+                    }
+                    break;
+                case 6:
+                    break;
                 default:
                     break;
             }
@@ -202,7 +228,7 @@ public class PlotManager : MonoBehaviour
                         }
                     break;
                 case 3:
-                        if(isBought && (fm.money - 30) > 10)
+                        if(isBought && (fm.money - 5) > 10)
                         {
                             plot.color = avaiableColor;
                         }
@@ -212,7 +238,7 @@ public class PlotManager : MonoBehaviour
                         }
                     break;
                 case 2:
-                        if(!isBought && (fm.money - 20) > 10)
+                        if(!isBought && ((fm.money - 20) > 10))
                         {
                             plot.color = avaiableColor;
                         }
@@ -231,6 +257,16 @@ public class PlotManager : MonoBehaviour
                             plot.color = unavaiableColor;
                         }
                 break;
+                case 5:
+                    if(isBought & !lightBought)
+                    {
+                        plot.color = avaiableColor;
+                    }
+                    else
+                    {
+                        plot.color = unavaiableColor;
+                    }
+                    break;
                 default:
                             plot.color = unavaiableColor;
                         break;
