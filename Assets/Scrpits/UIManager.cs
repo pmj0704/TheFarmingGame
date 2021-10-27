@@ -22,8 +22,8 @@ public class UIManager : MonoBehaviour
     {
         storeButton.sprite = selectedButton;
         Store.SetActive(true);
-        Grid.transform.localScale = new Vector2(0.75f, 0.75f);
-        Grid.transform.position = new Vector2(-3.65f, -1);
+        Grid.transform.localScale = new Vector3(0.75f, 0.75f, 1f);
+        Grid.transform.position = new Vector3(-3.65f, -1f, 0f);
         clickedOnce = true;
     }
     else
@@ -37,8 +37,8 @@ public class UIManager : MonoBehaviour
    {
        storeButton.sprite = normalButton;
        Store.SetActive(false);
-       Grid.transform.localScale = new Vector2(1f, 1f);
-       Grid.transform.position = new Vector2(0, -1);
+       Grid.transform.localScale = new Vector3(1f, 1f, 1f);
+       Grid.transform.position = new Vector3(0f, -1f, 0f);
       
        
    }

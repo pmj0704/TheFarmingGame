@@ -46,7 +46,7 @@ public class TransparentWindow : MonoBehaviour
 
     private void Start()
     {
-#if !UNITY_EDITOR
+//#if !UNITY_EDITOR
         hWnd = GetActiveWindow();
 
         MARGINS margins = new MARGINS { cxLeftWidth = -1 };
@@ -56,7 +56,7 @@ public class TransparentWindow : MonoBehaviour
         //SetLayeredWindowAttributes(hWnd, 0, 0, LWA_COLORKEY);
 
         SetWindowPos(hWnd, HWND_TOPMOST, 0, 0 ,0, 0 ,0);
-#endif
+//#endif
         Application.runInBackground = true;
 
     }

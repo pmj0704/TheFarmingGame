@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b612d071c9c611f4aa1633e0ab48fb4d, type: 3}
   m_Name: SunFlower
   m_EditorClassIdentifier: 
-  plantName: Sunflower
+  plantName: SunFlower
   plantStages:
   - {fileID: -596773373364728228, guid: d736393353e67114ba92639dad5f6476, type: 3}
   - {fileID: -7042374689226477266, guid: d736393353e67114ba92639dad5f6476, type: 3}
   - {fileID: 7530643719807144909, guid: d736393353e67114ba92639dad5f6476, type: 3}
   - {fileID: 6274847180039180657, guid: d736393353e67114ba92639dad5f6476, type: 3}
   timeBtwStages: 5
-  buyPrice: 20
-  sellPrice: 50
+  buyPrice: 15
+  sellPrice: 20
   icon: {fileID: 3910405501714380444, guid: d736393353e67114ba92639dad5f6476, type: 3}
-  dryPlanted: {fileID: -4943352394623894318, guid: e222f97bcd9c7d441b2ae18be074b0a8, type: 3}
+  dryPlanted: {fileID: -596773373364728228, guid: d736393353e67114ba92639dad5f6476, type: 3}

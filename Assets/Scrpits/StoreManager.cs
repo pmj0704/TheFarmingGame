@@ -9,15 +9,14 @@ public class StoreManager : MonoBehaviour
 
     private void Awake()
     {
-
-        var loadPlants = Resources.LoadAll("Plants", typeof(PlantObject));
+        var loadPlants = Resources.LoadAll("Assets/PlantFile", typeof(PlantObject));
         foreach (var plant in loadPlants)
         {
             plantObjects.Add((PlantObject)plant);
         }
         plantObjects.Sort(SortByPrice);
 
-        foreach(var plant in plantObjects)
+        foreach (var plant in plantObjects)
         {
             PlantItem newPlant = Instantiate(plantItem, transform).GetComponent<PlantItem>();
             newPlant.plant = plant;

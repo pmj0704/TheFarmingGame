@@ -36,7 +36,7 @@ public class PlotManager : MonoBehaviour
     void Start()
     {
         onoff = FindObjectOfType<OnOff>();
-        plotTimer = Random.Range(0f, 3f);
+        plotTimer = Random.Range(0f, 1800f);
         plot = GetComponent<SpriteRenderer>();
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
@@ -47,14 +47,14 @@ public class PlotManager : MonoBehaviour
             plotStage = 3;
             
         plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(0f, 5f);
+        plotTimer = Random.Range(0f, 1800f);
         }
         else
         {
             plotStage = 0;
 
         plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(0f, 5f);
+        plotTimer = Random.Range(0f, 1800f);
         }
     }
 
@@ -137,7 +137,7 @@ public class PlotManager : MonoBehaviour
                             plotStage += 3;
                         }
         plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(0f, 5f);
+        plotTimer = Random.Range(0f, 1800f);
                     }
                     break;
                 case 3:
@@ -150,7 +150,6 @@ public class PlotManager : MonoBehaviour
                 case 4:
                     if( isBought && ((plotStage + 1) % 3 != 1))
                     {
-                        fm.Transaction(-5);
                         plotStage--;
                           switch ((plotStage+1) % 3)
         {
@@ -223,7 +222,7 @@ public class PlotManager : MonoBehaviour
                         }
                     break;
                 case 4:
-                        if(isBought && (fm.money - 5) > 10 && ((plotStage + 1) % 3 != 0))
+                        if(isBought && ((plotStage + 1) % 3 != 0))
                         {
                             plot.color = avaiableColor;
                         }
@@ -259,7 +258,7 @@ public class PlotManager : MonoBehaviour
             if(plotStage < 9 && plotStage > 5)
             plotStage -= 3;
         plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(0f, 5f);
+        plotTimer = Random.Range(0f, 1800f);
             speed = 1f;
         }
     }
@@ -320,7 +319,7 @@ public class PlotManager : MonoBehaviour
         }
        
         plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(0f, 5f);
+        plotTimer = Random.Range(0f, 1800f);
     }
     private void ErrorItemandHarvest()
     {
@@ -341,7 +340,7 @@ public class PlotManager : MonoBehaviour
         }
         
         plot.sprite = plotStages[plotStage];
-        plotTimer = Random.Range(0f, 5f);
+        plotTimer = Random.Range(0f, 1800f);
         if(isPlanted) UpdatePlant();
     }
 }
