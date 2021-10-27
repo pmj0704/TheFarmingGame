@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b612d071c9c611f4aa1633e0ab48fb4d, type: 3}
   m_Name: Tomato 2
   m_EditorClassIdentifier: 
-  plantName: Tomato
+  plantName: Potato
   plantStages:
   - {fileID: -3780498461408796120, guid: d736393353e67114ba92639dad5f6476, type: 3}
   - {fileID: -5827874292771562073, guid: d736393353e67114ba92639dad5f6476, type: 3}
@@ -21,5 +21,5 @@ MonoBehaviour:
   timeBtwStages: 8
   buyPrice: 20
   sellPrice: 25
-  icon: {fileID: -1322868838983756743, guid: d736393353e67114ba92639dad5f6476, type: 3}
+  icon: {fileID: 21300000, guid: 0db8814934e9ee248bfd04c26298aa14, type: 3}
   dryPlanted: {fileID: -3780498461408796120, guid: d736393353e67114ba92639dad5f6476, type: 3}
