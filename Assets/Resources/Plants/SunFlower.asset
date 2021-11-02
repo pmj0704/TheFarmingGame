@@ -20,6 +20,6 @@ MonoBehaviour:
   - {fileID: 6274847180039180657, guid: d736393353e67114ba92639dad5f6476, type: 3}
   timeBtwStages: 5
   buyPrice: 15
-  sellPrice: 20
+  sellPrice: 25
   icon: {fileID: 3910405501714380444, guid: d736393353e67114ba92639dad5f6476, type: 3}
   dryPlanted: {fileID: -596773373364728228, guid: d736393353e67114ba92639dad5f6476, type: 3}

@@ -1,16 +1,28 @@
 fileFormatVersion: 2
-guid: f96e90c6f1505bb46bd7651dd4d7b992
+guid: da0ae540b49305348b60ee61ee5123aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5259214073647474414
-    second: PotatoStrea,_0
+      213: -615782628470063324
+    second: Flies_0
   - first:
-      213: 1142600452829465701
-    second: PotatoStrea,_1
+      213: -2898561694679379509
+    second: Flies_1
   - first:
-      213: -5312486774954446970
-    second: PotatoStrea,_2
+      213: 7054145574971232380
+    second: Flies_2
+  - first:
+      213: 1074022830165886987
+    second: Flies_3
+  - first:
+      213: -5628483506455667402
+    second: Flies_4
+  - first:
+      213: -7583537135873658424
+    second: Flies_5
+  - first:
+      213: 5810972855988790640
+    second: Flies_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,64 +112,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PotatoStrea,_0
+      name: Flies_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 199
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f7f2346fc4477f0800000000000000
+      internalID: -615782628470063324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flies_1
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 416
+        width: 199
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1d415fe7d36c7d0800000000000000
+      internalID: -2898561694679379509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flies_2
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 416
+        width: 199
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70dd06a60c55e160800000000000000
+      internalID: 7054145574971232380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flies_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 199
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0882b8d212b7ee00800000000000000
+      internalID: 1074022830165886987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flies_4
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 208
+        width: 199
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d9095621c93e1b0800000000000000
+      internalID: -5628483506455667402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flies_5
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 208
+        width: 199
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1744b772dd1c690800000000000000
+      internalID: -7583537135873658424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flies_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 340
-        height: 170
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 199
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee62e71e55b7cf840800000000000000
-      internalID: 5259214073647474414
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PotatoStrea,_1
-      rect:
-        serializedVersion: 2
-        x: 355
-        y: 0
-        width: 340
-        height: 231
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56cc91fde055bdf00800000000000000
-      internalID: 1142600452829465701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PotatoStrea,_2
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 0
-        width: 340
-        height: 247
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68f21e8cc614646b0800000000000000
-      internalID: -5312486774954446970
+      spriteID: 07526a05609b4a050800000000000000
+      internalID: 5810972855988790640
       vertices: []
       indices: 
       edges: []

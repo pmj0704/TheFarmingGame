@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b612d071c9c611f4aa1633e0ab48fb4d, type: 3}
-  m_Name: Tomato 2
+  m_Name: Carrot
   m_EditorClassIdentifier: 
-  plantName: Potato
+  plantName: Carrot
   plantStages:
   - {fileID: -3780498461408796120, guid: d736393353e67114ba92639dad5f6476, type: 3}
-  - {fileID: -5827874292771562073, guid: d736393353e67114ba92639dad5f6476, type: 3}
-  - {fileID: 2402415582554515247, guid: d736393353e67114ba92639dad5f6476, type: 3}
-  - {fileID: 8304950708062100032, guid: d736393353e67114ba92639dad5f6476, type: 3}
+  - {fileID: 6326848344106903229, guid: d736393353e67114ba92639dad5f6476, type: 3}
+  - {fileID: -2050940638911749577, guid: d736393353e67114ba92639dad5f6476, type: 3}
+  - {fileID: -2190124031951515080, guid: d736393353e67114ba92639dad5f6476, type: 3}
   timeBtwStages: 8
   buyPrice: 20
-  sellPrice: 25
-  icon: {fileID: 21300000, guid: 0db8814934e9ee248bfd04c26298aa14, type: 3}
+  sellPrice: 35
+  icon: {fileID: 7258317940488242195, guid: d736393353e67114ba92639dad5f6476, type: 3}
   dryPlanted: {fileID: -3780498461408796120, guid: d736393353e67114ba92639dad5f6476, type: 3}

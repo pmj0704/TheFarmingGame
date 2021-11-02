@@ -13,7 +13,9 @@ public class Daycycle : MonoBehaviour
     public GameObject Moon;
 
     public int imh;
-
+    [SerializeField]
+    private bool realTime = true;
+    int timestamp;
     void Update ()
     {
         if(System.DateTime.Now.Hour < 18 &&  7 < System.DateTime.Now.Hour)
@@ -26,10 +28,19 @@ public class Daycycle : MonoBehaviour
             Moon.SetActive(true);
             Sun.SetActive(false);
         }
-        hour = System.DateTime.Now.Hour;
-        min = System.DateTime.Now.Minute;
-        sec = System.DateTime.Now.Second;
+        if (realTime)
+        {
+            hour = System.DateTime.Now.Hour;
+            min = System.DateTime.Now.Minute;
+            sec = System.DateTime.Now.Second;
+            //var now = System.DateTime.Now.ToLocalTime();
+            //var span = (now - new System.DateTime(1970, 1, 1, 0, 0, 0, 0).ToLocalTime());
+            //timestamp = (int)span.TotalSeconds;
+
+        }
+
+
         angle = 0.004167f * ((hour * 3600) + (min * 60) + sec);
-        transform.rotation = Quaternion.Euler(0, 0,angle);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }
