@@ -4598,6 +4598,16 @@ MonoBehaviour:
   - {fileID: 1398420609}
   warningText: {fileID: 786270577}
   warningTXT: {fileID: 786270579}
+  plotStages:
+  - {fileID: 7629125325976426898, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: 7629125325976426898, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: 7629125325976426898, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: 6585399686029332789, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: 7309094496690302060, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: 7687541973021295724, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: -2012946019287992556, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: -4348397574329486151, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
+  - {fileID: 1695766320872882222, guid: 3ab119d31ef14f944a8eec0071615186, type: 3}
 --- !u!1 &1565486117
 GameObject:
   m_ObjectHideFlags: 0

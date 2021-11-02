@@ -14,18 +14,15 @@ public class PlantItem : MonoBehaviour
     public Image btnImage;
     public Text  btnTxt;
 
-    FarmManager fm;
-
     void Start()
     {
-        fm = FindObjectOfType<FarmManager>();
         InitializeUI();
     }
 
     public void BuyPlant()
     {
         Debug.Log("Bought" + plant.plantName);
-        fm.SelectedPlant(this);
+        FarmManager.Instance.SelectedPlant(this);
     }
 
     void InitializeUI()

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class FarmManager : MonoBehaviour
+public class FarmManager : MonoSingleton<FarmManager>
 {
     public PlantItem selectedPlant;
     public bool isPlanting = false;
@@ -23,7 +23,9 @@ public class FarmManager : MonoBehaviour
     public GameObject[] buttons;
     public GameObject warningText;
     public TextMeshProUGUI warningTXT;
-
+    public Sprite[] plotStages;
+    public Color unavaiableColor = Color.red;
+    public Color avaiableColor = Color.green;
 
     void Start()
     {

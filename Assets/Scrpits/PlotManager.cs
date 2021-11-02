@@ -13,15 +13,10 @@ public class PlotManager : MonoBehaviour
     int plantStage = 0;
     float timer;
 
-    public Color avaiableColor = Color.green;
-    public Color unavaiableColor = Color.red;
 
     private SpriteRenderer plot;
 
     private PlantObject selectedPlant;
-
-    private FarmManager fm;   
-    public Sprite[] plotStages;
     int plotStage;
     float plotTimer;
 
@@ -42,19 +37,18 @@ public class PlotManager : MonoBehaviour
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
         plantColider = transform.GetChild(0).GetComponent<BoxCollider2D>();
-        fm = transform.parent.GetComponent<FarmManager>();
         if(isBought)
         {
             plotStage = 3;
             
-        plot.sprite = plotStages[plotStage];
+        plot.sprite = FarmManager.Instance.plotStages[plotStage];
         plotTimer = Random.Range(0f, 1800f);
         }
         else
         {
             plotStage = 0;
 
-        plot.sprite = plotStages[plotStage];
+        plot.sprite = FarmManager.Instance.plotStages[plotStage];
         plotTimer = Random.Range(0f, 1800f);
         }
     }
@@ -104,24 +98,24 @@ public class PlotManager : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(isPlanted && fm.isSelecting && plantStage == selectedPlant.plantStages.Length-1)
+        if(isPlanted && FarmManager.Instance.isSelecting && plantStage == selectedPlant.plantStages.Length-1)
         {
             ErrorItemandHarvest();
         }
         if(isPlanted)
         {
-            if(plantStage == selectedPlant.plantStages.Length-1 && !fm.isPlanting && !fm.isSelecting)
+            if(plantStage == selectedPlant.plantStages.Length-1 && !FarmManager.Instance.isPlanting && !FarmManager.Instance.isSelecting)
             {
                 Harvest();
             }
         }
-        else if(fm.isPlanting && fm.selectedPlant.plant.buyPrice <= fm.money && isBought)
+        else if(FarmManager.Instance.isPlanting && FarmManager.Instance.selectedPlant.plant.buyPrice <= FarmManager.Instance.money && isBought)
         {
-            Plant(fm.selectedPlant.plant);
+            Plant(FarmManager.Instance.selectedPlant.plant);
         }
-        if(fm.isSelecting)
+        if(FarmManager.Instance.isSelecting)
         {
-            switch (fm.selectedTool)
+            switch (FarmManager.Instance.selectedTool)
             {   
                 case 1:
                 if(isBought){
@@ -129,22 +123,22 @@ public class PlotManager : MonoBehaviour
                 }
                     break;
                 case 2:
-                    if(fm.money >= 20 && !isBought && ((fm.money - 20) >= 10))
+                    if(FarmManager.Instance.money >= 20 && !isBought && ((FarmManager.Instance.money - 20) >= 10))
                     {
-                        fm.Transaction(-20);
+                        FarmManager.Instance.Transaction(-20);
                         isBought = true;
                         if(0 < (plotStage + 1) && plotStage < 3)
                         {
                             plotStage += 3;
                         }
-                    plot.sprite = plotStages[plotStage];
+                    plot.sprite = FarmManager.Instance.plotStages[plotStage];
                     plotTimer = Random.Range(0f, 1800f);
                     }
                     break;
                 case 3:
-                    if(fm.money >= 5 && isBought && ((fm.money - 5) >= 10))
+                    if(FarmManager.Instance.money >= 5 && isBought && ((FarmManager.Instance.money - 5) >= 10))
                     {
-                        fm.Transaction(-5);
+                        FarmManager.Instance.Transaction(-5);
                         if(speed < 2) speed += .2f;
                     }
                     break;
@@ -168,9 +162,9 @@ public class PlotManager : MonoBehaviour
                 case 5:
                     if (!lightBought)
                     {
-                        if (fm.money >= 20 && isBought && ((fm.money - 20) >= 10))
+                        if (FarmManager.Instance.money >= 20 && isBought && ((FarmManager.Instance.money - 20) >= 10))
                         {
-                            fm.Transaction(-20);
+                            FarmManager.Instance.Transaction(-20);
                             lightBought = true;
                             isDark = false;
                             plot.gameObject.transform.GetChild(3).gameObject.SetActive(true);
@@ -201,74 +195,74 @@ public class PlotManager : MonoBehaviour
     private void OnMouseOver()
     {
 
-        if(fm.isPlanting)
+        if(FarmManager.Instance.isPlanting)
         {
-            if(isPlanted || fm.selectedPlant.plant.buyPrice > fm.money || !isBought)
+            if(isPlanted || FarmManager.Instance.selectedPlant.plant.buyPrice > FarmManager.Instance.money || !isBought)
             {
-                plot.color = unavaiableColor;
+                plot.color = FarmManager.Instance.unavaiableColor;
             }
             else
             {
-                plot.color = avaiableColor;
+                plot.color = FarmManager.Instance.avaiableColor;
             }
         }
 
-        if(fm.isSelecting)
+        if(FarmManager.Instance.isSelecting)
             {
-                switch (fm.selectedTool)
+                switch (FarmManager.Instance.selectedTool)
                 {
                 case 1:
                 if(isBought)
                         {
-                            plot.color = avaiableColor;
+                            plot.color = FarmManager.Instance.avaiableColor;
                         }
                         else
                         {
-                            plot.color = unavaiableColor;
+                            plot.color = FarmManager.Instance.unavaiableColor;
                         }
                     break;
                 case 3:
-                        if(isBought && (fm.money - 5) >= 10)
+                        if(isBought && (FarmManager.Instance.money - 5) >= 10)
                         {
-                            plot.color = avaiableColor;
+                            plot.color = FarmManager.Instance.avaiableColor;
                         }
                         else
                         {
-                            plot.color = unavaiableColor;
+                            plot.color = FarmManager.Instance.unavaiableColor;
                         }
                     break;
                 case 2:
-                        if(!isBought && ((fm.money - 20) >= 10))
+                        if(!isBought && ((FarmManager.Instance.money - 20) >= 10))
                         {
-                            plot.color = avaiableColor;
+                            plot.color = FarmManager.Instance.avaiableColor;
                         }
                         else
                         {
-                            plot.color = unavaiableColor;
+                            plot.color = FarmManager.Instance.unavaiableColor;
                         }
                     break;
                 case 4:
                         if(isBought && ((plotStage + 1) % 3 != 0))
                         {
-                            plot.color = avaiableColor;
+                            plot.color = FarmManager.Instance.avaiableColor;
                         }
                         else
                         {
-                            plot.color = unavaiableColor;
+                            plot.color = FarmManager.Instance.unavaiableColor;
                         }
                 break;
                 case 5:
-                    if(isBought & !lightBought & ((fm.money - 20) >= 10))
+                    if(isBought & !lightBought & ((FarmManager.Instance.money - 20) >= 10))
                     {
-                        plot.color = avaiableColor;
+                        plot.color = FarmManager.Instance.avaiableColor;
                     }
                     else
                     {
-                        plot.color = unavaiableColor;
+                        plot.color = FarmManager.Instance.unavaiableColor;
                     }
                     break;
                 default:
-                            plot.color = unavaiableColor;
+                            plot.color = FarmManager.Instance.unavaiableColor;
                         break;
                 }
             }
@@ -281,7 +275,7 @@ public class PlotManager : MonoBehaviour
 
     void Harvest()
     {
-        if(fm.isSelecting)
+        if(FarmManager.Instance.isSelecting)
         {
             ErrorItemandHarvest();
         }
@@ -289,11 +283,11 @@ public class PlotManager : MonoBehaviour
         {
             isPlanted = false;
             plant.gameObject.SetActive(false);
-            fm.Transaction(selectedPlant.sellPrice);
+            FarmManager.Instance.Transaction(selectedPlant.sellPrice);
             isDry = true;
             if(plotStage < 9 && plotStage > 5)
             plotStage -= 3;
-        plot.sprite = plotStages[plotStage];
+        plot.sprite = FarmManager.Instance.plotStages[plotStage];
         plotTimer = Random.Range(0f, 1800f);
             speed = 1f;
         }
@@ -303,7 +297,7 @@ public class PlotManager : MonoBehaviour
         selectedPlant = newPlant;
         isPlanted = true;
 
-        fm.Transaction(-selectedPlant.buyPrice);
+        FarmManager.Instance.Transaction(-selectedPlant.buyPrice);
 
         plantStage = 0;
         UpdatePlant();
@@ -354,15 +348,15 @@ public class PlotManager : MonoBehaviour
         }
         }
        
-        plot.sprite = plotStages[plotStage];
+        plot.sprite = FarmManager.Instance.plotStages[plotStage];
         plotTimer = Random.Range(0f, 1800f);
     }
     private void ErrorItemandHarvest()
     {
             Debug.Log("ItSel");
-            fm.warningTXT.text = "You must deselect the tool to harvest your crops";
-            fm.warningText.GetComponent<Animator>().Play("Fade");
-            fm.buttons[fm.selectedTool - 1].GetComponent<Animator>().Play("ItemIsUsing");
+            FarmManager.Instance.warningTXT.text = "You must deselect the tool to harvest your crops";
+            FarmManager.Instance.warningText.GetComponent<Animator>().Play("Fade");
+            FarmManager.Instance.buttons[FarmManager.Instance.selectedTool - 1].GetComponent<Animator>().Play("ItemIsUsing");
     }
     private IEnumerator Watering()
     {
@@ -375,7 +369,7 @@ public class PlotManager : MonoBehaviour
             plotStage += 3;
         }
         
-        plot.sprite = plotStages[plotStage];
+        plot.sprite = FarmManager.Instance.plotStages[plotStage];
         plotTimer = Random.Range(0f, 1800f);
         if(isPlanted) UpdatePlant();
     }
