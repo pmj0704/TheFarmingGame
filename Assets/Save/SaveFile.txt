@@ -1,0 +1,246 @@
+﻿{
+    "nickname": "",
+    "money": 100,
+    "plotList": [
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 309.2275695800781,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 78.48078918457031,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 1623.5263671875,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 677.2399291992188,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 1383.6519775390625,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 665.7736206054688,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 654.6063842773438,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 310.52081298828127,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 548.39111328125,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 790.3927001953125,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 328.76904296875,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 1788.1561279296875,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 617.3818359375,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 1049.387451171875,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 693.3568115234375,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        },
+        {
+            "isPlanted": false,
+            "plantStage": 0,
+            "timer": 0.0,
+            "plotStage": 0,
+            "plotTimer": 1610.1983642578125,
+            "isDry": true,
+            "speed": 1.0,
+            "isBought": false,
+            "isDark": false,
+            "lightBought": false,
+            "selectedPlant": {
+                "instanceID": 0
+            }
+        }
+    ]
+}

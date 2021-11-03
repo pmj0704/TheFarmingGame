@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.UI;
 using TMPro;
 
@@ -8,7 +9,6 @@ public class FarmManager : MonoSingleton<FarmManager>
 {
     public PlantItem selectedPlant;
     public bool isPlanting = false;
-    public int money = 100;
     public Text moneyTxt;
     
     public Color buyColor = Color.green;
@@ -27,10 +27,14 @@ public class FarmManager : MonoSingleton<FarmManager>
     public Color unavaiableColor = Color.red;
     public Color avaiableColor = Color.green;
 
+
+
     void Start()
     {
-        moneyTxt.text = "$" + money;
+        moneyTxt.text = "$" + GameManager.Instance.currentUser.money;
     }
+
+   
 
     public void SelectedPlant(PlantItem newPlant)
     {
@@ -88,8 +92,8 @@ public class FarmManager : MonoSingleton<FarmManager>
 
     public void Transaction(int vaule)
     {
-        money += vaule;
-        moneyTxt.text = "$" + money;
+        GameManager.Instance.currentUser.money += vaule;
+        moneyTxt.text = "$" + GameManager.Instance.currentUser.money;
     }
 
 }
